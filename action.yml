@@ -97,7 +97,7 @@ runs:
       with:
         binary: "cross"
         version: ${{ inputs.cross-version }}
-        download_url: "https://github.com/cross-rs/cross/releases/download/${version}/${{ inputs.target }}.tar.gz"
+        download_url: "https://github.com/cross-rs/cross/releases/download/${version}/${binary}-${{ inputs.target }}.tar.gz"
         tarball_binary_path: "${binary}"
         smoke_test: "${binary} --version"
 
