@@ -23,6 +23,10 @@ inputs:
     type: boolean
     required: false
     default: false
+  cross-variant:
+    description: The variant of cross to use.
+    required: false
+    default: cross-x86_64-unknown-linux-gnu
   target:
     description: The Rust target we are building to.
     required: true
@@ -97,7 +101,7 @@ runs:
       with:
         binary: "cross"
         version: ${{ inputs.cross-version }}
-        download_url: "https://github.com/cross-rs/cross/releases/download/${version}/cross-x86_64-unknown-linux-gnu.tar.gz"
+        download_url: "https://github.com/cross-rs/cross/releases/download/${version}/${{ inputs.cross-variant }}.tar.gz"
         tarball_binary_path: "${binary}"
         smoke_test: "${binary} --version"
 
